@@ -47,7 +47,7 @@ namespace Plan_B_winForms
                 }
                 pictureBox1.Image = targetBitmap;*/
 
-            }
+           }
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -194,8 +194,50 @@ namespace Plan_B_winForms
 
         private void button3_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Form2 f = new Form2();
             f.Show();
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form3 f = new Form3();
+            f.Show();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(pictureBox1.Image != null)
+            {
+                SaveFileDialog savedialog = new SaveFileDialog();
+                savedialog.OverwritePrompt = true;
+                savedialog.CheckPathExists = true;
+                savedialog.Filter = "Image Files(*.BMP)|*.BMP|Image Files(*.JPG)|*.JPG|Image Files(*.GIF)|*.GIF|Image Files(*.PNG)|*.PNG|All files (*.*)|*.*";
+                savedialog.ShowHelp = true;
+                if (savedialog.ShowDialog() == DialogResult.OK) 
+                {
+                    try
+                    {
+                        pictureBox1.Image.Save(savedialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Невозможно сохранить изображение", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Нечего сохранять!");
+            }
         }
     }
 }

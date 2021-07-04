@@ -83,5 +83,34 @@ namespace Plan_B_winForms
             else if (toolStripComboBox1.SelectedIndex == 1)
                 lang = "eng";
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form3 f = new Form3();
+            f.Show();
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile1 = new SaveFileDialog();
+            saveFile1.DefaultExt = "*.txt";
+            saveFile1.Filter = "TXT Files|*.txt";
+
+            if (saveFile1.ShowDialog() == DialogResult.OK && saveFile1.FileName.Length > 0)
+            {
+                richTextBox1.SaveFile(saveFile1.FileName, RichTextBoxStreamType.PlainText);
+            }
+        }
     }
 }

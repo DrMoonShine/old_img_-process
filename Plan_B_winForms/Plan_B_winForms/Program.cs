@@ -16,7 +16,7 @@ namespace Plan_B_winForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form3());
         }
     }
 }
